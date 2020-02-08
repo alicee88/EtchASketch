@@ -9,11 +9,21 @@
    
     <div class="container">
         <h1> Etch-A-Sketch </h1>
-        <form class="resetControls">
-            <label for="reset">Squares per side</label>
-            <input id="reset" type="number" name="squares" min="1" max="100" value="16">
-            <input type="submit" value="Reset">
-        </form>
+        <div class = "controls">
+            <form class="resetControls">
+                <label for="reset">Squares per side</label>
+                <input id="reset" type="number" name="squares" min="1" max="100" value="16">
+                
+
+                <input type="radio" id="mono" name="coloured" value="mono" checked>
+                <label for="mono">Mono</label>
+
+                <input type="radio" id="colour" name="coloured" value="rainbow">
+                <label for="mono">Rainbow</label>
+
+                <input type="submit" value="Reset">
+            </form>
+        </div>
         <div class="container">
             <div class="wrapper"></div>
         </div>
