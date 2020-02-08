@@ -9,13 +9,13 @@ let currSquare;
 let numSquares = 16;
 
 function createGrid(numSquares) {
-    
     const totalSquares = numSquares * numSquares; 
 
     for(let i = 0; i < totalSquares; i++) {
         let square = document.createElement('div');
         square.classList.add('square');
         wrapper.appendChild(square);
+        square.addEventListener('mousemove', paintSquare);
         squares.push(square);
     }
 }
@@ -26,9 +26,11 @@ function paintSquare(e) {
 
 function reset(e) {
     e.preventDefault();
+
     squares.forEach(square => {
         wrapper.removeChild(square);
     });
+
     squares.length = 0;
     root.style.setProperty('--numSquares', numSquares);
     root.style.setProperty('--numSquares', numSquares);
@@ -41,6 +43,6 @@ function updateNumSquares(e) {
 }
 
 createGrid(numSquares);
-squares.forEach(square => square.addEventListener('mousemove', paintSquare));
+
 resetControls.addEventListener('submit', reset);
 resetSquares.addEventListener('change', updateNumSquares);
