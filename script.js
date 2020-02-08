@@ -1,16 +1,21 @@
-const container = document.querySelector('.wrapper');
+const wrapper = document.querySelector('.wrapper');
+const resetControls = document.querySelector('.resetControls');
+const resetSquares = document.querySelector('input[name="squares"]');
+const root = document.documentElement;
+
 const squares = [];
 let isPainting = false;
 let currSquare;
+let numSquares = 16;
 
-function createGrid() {
-   const numSquares = 16 * 16;
+function createGrid(numSquares) {
+    
+    const totalSquares = numSquares * numSquares; 
 
-    for(let i = 0; i < numSquares; i++) {
+    for(let i = 0; i < totalSquares; i++) {
         let square = document.createElement('div');
         square.classList.add('square');
-        // square.textContent = i;
-        container.appendChild(square);
+        wrapper.appendChild(square);
         squares.push(square);
     }
 }
@@ -19,5 +24,23 @@ function paintSquare(e) {
     this.classList.add('painted');
 }
 
-createGrid();
+function reset(e) {
+    e.preventDefault();
+    squares.forEach(square => {
+        wrapper.removeChild(square);
+    });
+    squares.length = 0;
+    root.style.setProperty('--numSquares', numSquares);
+    root.style.setProperty('--numSquares', numSquares);
+    createGrid(numSquares);
+
+}
+
+function updateNumSquares(e) {
+    numSquares = this.value;
+}
+
+createGrid(numSquares);
 squares.forEach(square => square.addEventListener('mousemove', paintSquare));
+resetControls.addEventListener('submit', reset);
+resetSquares.addEventListener('change', updateNumSquares);

@@ -1,13 +1,18 @@
+:root {
+    --numSquares: 16;
+}
+
 html {
     box-sizing: border-box;
 }
 
 body {
     margin: 0 auto;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 h1 {
-    font-family: 'Josefin Sans', sans-serif;
+    
     font-size: 36px;
 }
 
@@ -20,15 +25,19 @@ h1 {
 .wrapper {
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(16, 32px);
-    grid-template-rows: repeat(16, 32px);
+    grid-template-columns: repeat(var(--numSquares), calc(512px / var(--numSquares)));
+    grid-template-rows: repeat(var(--numSquares), calc(512px / var(--numSquares)));
 } 
 
  .square {
-    padding: 16px; 
+    /* padding: var(--numSquares)px;  */
     border: 1px solid #DDDDDD;
 }
 
 .square.painted {
     background-color:  rgba(0, 0, 0, 0.3);
+}
+
+.resetControls {
+    padding-bottom: 20px;
 }
