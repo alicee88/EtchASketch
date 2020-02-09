@@ -2,6 +2,7 @@ const wrapper = document.querySelector('.wrapper');
 const resetControls = document.querySelector('.resetControls');
 const resetSquares = document.querySelector('input[name="squares"]');
 const colourControl = document.querySelectorAll('input[name="coloured"]');
+const body = document.querySelector('body');
 // For CSS Custom Property (numSquares)
 const root = document.documentElement;
 
@@ -51,11 +52,13 @@ function getColour(square) {
         }
     } else {
         // Rainbow colours!
+        let h, l;
         if(!square.visited) {
             // Set a random colour
             r = Math.floor(Math.random() * 256); 
             g = Math.floor(Math.random() * 256); 
             b = Math.floor(Math.random() * 256);
+           
         } else {
             // Make the existing colour 10% more black
             rgb = getComputedStyle(square.div).backgroundColor;
@@ -81,6 +84,12 @@ function reset(e) {
     root.style.setProperty('--numSquares', numSquares);
 
     createGrid(numSquares);
+
+    if(!isMono) {
+        body.classList.add('rainbow-body');
+    } else {
+        body.classList.remove('rainbow-body');
+    }
 
 }
 

@@ -9,6 +9,14 @@ html {
 body {
     margin: 0 auto;
     font-family: 'Josefin Sans', sans-serif;
+    color: #757f9a;
+    background: #d7dde8;
+}
+
+.rainbow-body {
+    background: #CC95C0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 h1 {
@@ -20,6 +28,7 @@ h1 {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-top: 50px;
 }
 
 .wrapper {
@@ -31,8 +40,39 @@ h1 {
 
  .square {
     border: 1px solid #DDDDDD;
-}
+    background: #ECE9E6;
+ }
 
 .resetControls {
     padding-bottom: 20px;
+}
+
+input[type=number] {
+    border: 3px solid white; 
+    -webkit-box-shadow: 
+      inset 0 0 4px  rgba(0,0,0,0.1),
+            0 0 8px rgba(0,0,0,0.1); 
+    -moz-box-shadow: 
+      inset 0 0 4px  rgba(0,0,0,0.1),
+            0 0 8px rgba(0,0,0,0.1); 
+    box-shadow: 
+      inset 0 0 4px  rgba(0,0,0,0.1),
+            0 0 8px rgba(0,0,0,0.1); 
+    padding: 5px;
+    background: rgba(255,255,255,0.5);
+    width: 2.5rem;
+    border-radius: 5px;
+    color: #757f9a;
+}
+
+input[type=submit] {
+    border: 3px solid white;
+    background: rgba(255,255,255,0.5);
+    padding: 5px;
+    border-radius: 5px;
+    color: #757f9a;
+}
+
+input[type=submit]:hover {
+    background: rgb(255,255,255,0.2);
 }
